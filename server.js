@@ -17,6 +17,9 @@ app.use(express.json());
 
 // Swagger UI
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// Ver el JSON de la especificación (depuración Swagger)
+app.get('/docs-json', (_req, res) => res.json(swaggerSpec));
+
 
 // Rutas
 app.use('/api/cartelera', carteleraRouter);
